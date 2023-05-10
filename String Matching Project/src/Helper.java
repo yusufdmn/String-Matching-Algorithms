@@ -13,7 +13,7 @@ public class Helper {
         System.out.println(map);
     }
 
-    //not done yet
+
     //could be used as Hoorspol's shift table or Boyer Moore's bas symbol table
     //For other characters that are not included in the map shift pattern.length times
     public static Map<Character,Integer> getBadSymbolTable(String pattern){
@@ -38,33 +38,6 @@ public class Helper {
         if(!map.containsKey(eachChar[eachChar.length-1])){
             map.put(eachChar[eachChar.length-1],(eachChar.length));
         }
-
-        /*
-        //iterate pattern right to left
-
-        outerLoop:
-        for(int i= eachChar.length-1;i>=1;i--){
-            short count=0;
-
-            innerLoop:
-            for(int k=i-1;k>=0;k--){
-                if(eachChar[k]==eachChar[i]){
-                    if(!map.containsKey(eachChar[i])){
-                        map.put(eachChar[i],(i-k));
-                    }
-                    count++;
-                    break innerLoop;
-                }
-            }//inner loop end
-            if(count==0){
-                if(!map.containsKey(eachChar[i])){
-                    map.put(eachChar[i],eachChar.length);
-                }
-            }
-        }//outer loop end
-
-
-         */
 
 
         return map;
