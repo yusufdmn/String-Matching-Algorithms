@@ -14,7 +14,7 @@ public class Main {
         int lengthOfText = text.length();
         int lengthOfPattern = pattern.length();
 
-        matchIndexes = bruteForce.ApplyBruteForce(text, lengthOfText, lengthOfPattern, pattern);
+        matchIndexes = bruteForce.ApplyBruteForce(text, pattern);
         String textHighlighted = bruteForce.HighligthText(text, matchIndexes, lengthOfPattern);
 
         System.out.println("pattern length: " + lengthOfPattern);
