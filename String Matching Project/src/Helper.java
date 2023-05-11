@@ -5,18 +5,11 @@ import java.util.Map;
 public class Helper {
 
 
-    public static void main(String[] args) {
-        String pattern = "LAMALAMAL";
 
-        Map<Character,Integer> map = getBadSymbolTable(pattern);
-
-        System.out.println("For pattern \""+pattern+"\"");
-        System.out.println("Bad Symbol Table");
-        System.out.println(map);
-        System.out.println("Good Suffix Table");
-        System.out.println(getGoodSuffixTable(pattern));
-
-
+    public static void printTables(String pattern){
+        System.out.println("Pattern: " + pattern);
+        System.out.println("Bad Symbol Table: " + Helper.getBadSymbolTable(pattern));
+        System.out.println("Good Suffix: " + Helper.getGoodSuffixTable(pattern) + "\n");
     }
 
     //Good Suffix Table returns Map<k,shift size>

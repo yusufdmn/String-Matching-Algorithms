@@ -3,9 +3,6 @@ import java.util.Map;
 
 public class Horspool extends Algorithm{
 
-    public static void main(String[] args) {
-
-    }
 
     public ArrayList<Integer> applyHorspool(String text, String pattern){
 
@@ -14,7 +11,7 @@ public class Horspool extends Algorithm{
         ArrayList<Integer> matchIndexes = new ArrayList<>();
 
         int i = 0;
-        while (i < lengthOfText - lengthOfPattern){
+        while (i <= lengthOfText - lengthOfPattern){
             int j = lengthOfPattern - 1;
             boolean isFullMatch = false;
             comparison++;
@@ -39,13 +36,16 @@ public class Horspool extends Algorithm{
 
         int lengthOfPattern = pattern.length();
 
-        if (isFullMatch){
+        char lastCharOfPattern = text.charAt(i + lengthOfPattern - 1);
+        shiftSize = badSymbolTable.getOrDefault(lastCharOfPattern, lengthOfPattern); // if key doesn't exist in map, get lengthOfPattern
+
+        /*if (isFullMatch){
             shiftSize = lengthOfPattern;
         }
         else{
             char lastCharOfPattern = text.charAt(i + lengthOfPattern - 1);
             shiftSize = badSymbolTable.getOrDefault(lastCharOfPattern, lengthOfPattern); // if key doesn't exist in map, get lengthOfPattern
-        }
+        }*/
         return shiftSize;
     }
 

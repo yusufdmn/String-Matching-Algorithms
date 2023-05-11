@@ -22,7 +22,15 @@ abstract class Algorithm {
         textHighlighted.append(text);
 
         for (int index = matchIndexes.size() - 1; index >= 0; index--){
-            textHighlighted.insert(matchIndexes.get(index) + lengthOfPattern, "</mark>");
+
+            int overlapCount = 0;
+            while(index > 0 && matchIndexes.get(index) - matchIndexes.get(index - 1) < lengthOfPattern){
+                overlapCount++;
+                index--;
+                //if (index == -1) index++;
+            }
+
+            textHighlighted.insert(matchIndexes.get(index + overlapCount) + lengthOfPattern, "</mark>");
             textHighlighted.insert(matchIndexes.get(index), "<mark>");
         }
         return textHighlighted.toString();
