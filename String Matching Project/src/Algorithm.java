@@ -6,22 +6,22 @@ abstract class Algorithm {
     long timeOfExecution;
     int comparison;
 
-    public void StartTiming(){
+    public void startTiming(){
         timeOfStart = System.currentTimeMillis();
-        System.out.println("Time Of Start: " + timeOfStart + "\n");
+        //System.out.println("Time Of Start: " + timeOfStart + "");
     }
-    public void StopTiming(){
+    public void stopTiming(){
         timeOfEnd = System.currentTimeMillis();
         timeOfExecution = timeOfEnd - timeOfStart;
-        System.out.println("\nTime Of End: " + timeOfEnd);
+        //System.out.println("Time Of End: " + timeOfEnd);
         System.out.println("Execution Time: " + timeOfExecution);
     }
 
-    public String HighligthText(String text, ArrayList<Integer> matchIndexes, int lengthOfPattern){
+    public String highligthText(String text, ArrayList<Integer> matchIndexes, int lengthOfPattern){
         StringBuilder textHighlighted = new StringBuilder();
         textHighlighted.append(text);
 
-        for (int index = matchIndexes.size()-1; index >= 0; index--){
+        for (int index = matchIndexes.size() - 1; index >= 0; index--){
             textHighlighted.insert(matchIndexes.get(index) + lengthOfPattern, "</mark>");
             textHighlighted.insert(matchIndexes.get(index), "<mark>");
         }

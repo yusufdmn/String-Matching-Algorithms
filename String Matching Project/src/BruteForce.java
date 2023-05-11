@@ -2,7 +2,7 @@ import java.util.*;
 
 public class BruteForce extends Algorithm{
 
-    public ArrayList<Integer> ApplyBruteForce(String text, String pattern){
+    public ArrayList<Integer> applyBruteForce(String text, String pattern){
         comparison = 0;
         int lengthOfText = text.length();
         int lengthOfPattern = pattern.length();

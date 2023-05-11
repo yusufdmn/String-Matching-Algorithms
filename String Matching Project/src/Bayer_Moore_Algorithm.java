@@ -4,21 +4,10 @@ import java.util.Map;
 
 public class Bayer_Moore_Algorithm extends Algorithm{
 
-    public static void main(String[] args) {
-        String text = "WHICH_FINALLY_HALTS.__AT_THAT";
-        String pattern = "AT_THAT";
 
-        ArrayList<Integer> list = applyBoyerMoore(text,pattern);
+    public ArrayList<Integer> applyBoyerMoore(String text,String pattern){
 
-        list.forEach(e-> System.out.println(e));
-
-
-
-    }
-
-    public static ArrayList<Integer> applyBoyerMoore(String text,String pattern){
-
-        int comparisonNumber =0;
+        comparison =0;
 
         ArrayList<Integer> list = new ArrayList<>();
 
@@ -33,7 +22,7 @@ public class Bayer_Moore_Algorithm extends Algorithm{
             //traverse pattern right to left
             innerLoop:
             for(int _k = pattern.length()-1, l=0; _k>=0;_k--,l++ ){
-                comparisonNumber++;//to get efficiency
+                comparison++;//to get efficiency
                 if(pattern.charAt(_k)==text.charAt(endIndexOfPatternAtText-l)){
                     numOfMatches++;
                 }else{
@@ -55,8 +44,6 @@ public class Bayer_Moore_Algorithm extends Algorithm{
 
         }
 
-
-        System.out.println("Number of comparison: "+comparisonNumber);
 
         return list;
     }

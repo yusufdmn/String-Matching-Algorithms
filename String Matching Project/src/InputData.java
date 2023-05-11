@@ -2,11 +2,13 @@ import java.io.*;
 
 public class InputData {
 
-    public static File file = new File("text.html");
-    public static String pattern = "togg";
+    public static File fileB = new File("textB.html");
+    public static File fileH = new File("textH.html");
+    public static File fileM = new File("textM.html");
+    public static String pattern = "class";
     public static String text = "";
 
-    public static String ReadTheText(File file){
+    public static String readTheText(File file){
 
         try {
             // Read the contents of the file into a string
@@ -24,7 +26,7 @@ public class InputData {
         return null;
     }
 
-    public  static void WriteInFile(File file, String output){
+    public  static void writeInFile(File file, String output){
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             writer.write(output);
