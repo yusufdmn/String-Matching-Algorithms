@@ -2,7 +2,9 @@ import java.io.*;
 
 public class InputData {
 
-    public static String[] fileNames = {"bit1.html", "bit2.html", "bit3.html"};
+    public static String[] fileNames = {"C:\\Users\\ilker\\IdeaProjects\\gitProjects\\String-Matching-Algorithms\\String Matching Project\\bit1.html"
+            , "C:\\Users\\ilker\\IdeaProjects\\gitProjects\\String-Matching-Algorithms\\String Matching Project\\bit2.html",
+            "C:\\Users\\ilker\\IdeaProjects\\gitProjects\\String-Matching-Algorithms\\String Matching Project\\bit3.html"};
 
     public static String[] patterns = {"00101010", "010101", "0000"};
     public static String text = "";

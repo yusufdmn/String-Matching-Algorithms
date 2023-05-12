@@ -63,10 +63,6 @@ public class Bayer_Moore_Algorithm extends Algorithm{
         Map<Integer,Integer> goodSuffixTable = Helper.getGoodSuffixTable(pattern);
         Map<Character,Integer> badSymbolTable = Helper.getBadSymbolTable(pattern);
 
-        int d2 = goodSuffixTable.get(k);
-
-        if(k==pattern.length())
-            return d2;
 
         int shiftSize = 0;
 
@@ -79,10 +75,16 @@ public class Bayer_Moore_Algorithm extends Algorithm{
         }
 
         int d1 = Math.max(t_1-k,1);
-
         if(k==0){
             return d1;
         }
+
+        int d2 = goodSuffixTable.get(k);
+
+        if(k==pattern.length())
+            return d2;
+
+
 
         shiftSize = Math.max(d1,d2);
 
