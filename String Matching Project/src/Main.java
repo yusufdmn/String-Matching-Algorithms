@@ -8,7 +8,7 @@ public class Main {
         ArrayList<Integer> matchIndexes = new ArrayList<>();
 
 
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < InputData.fileNames.length; i++){
             String text = InputData.readTheText(InputData.fileNames[i]);
             String pattern = InputData.patterns[i];
 
