@@ -1,4 +1,3 @@
-import javax.imageio.metadata.IIOMetadataNode;
 import java.util.ArrayList;
 
 public class Main {
@@ -63,12 +62,12 @@ public class Main {
 
         System.out.println("\nBOYER MOORE");
 
-        Bayer_Moore_Algorithm bayerMooreAlgorithm = new Bayer_Moore_Algorithm();
+        Bayer_Moore_Algorithm bayerMooreAlgorithm = new Bayer_Moore_Algorithm(text,pattern);
         bayerMooreAlgorithm.startTiming();
 
         int lengthOfPattern = pattern.length();
 
-        matchIndexes = bayerMooreAlgorithm.applyBoyerMoore(text, pattern);
+        matchIndexes = bayerMooreAlgorithm.applyBoyerMoore();
         String textHighlighted = bayerMooreAlgorithm.highligthText(text, matchIndexes, lengthOfPattern);
         //InputData.writeInFile(InputData.fileM, textHighlighted);
         System.out.println("Comparison: " + bayerMooreAlgorithm.comparison);

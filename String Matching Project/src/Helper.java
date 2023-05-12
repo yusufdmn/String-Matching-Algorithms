@@ -12,10 +12,6 @@ public class Helper {
 
     }
 
-    public static void main(String[] args) {
-        System.out.println("GS : "+ getGoodSuffixTable("amama"));
-    }
-
     //Good Suffix Table returns Map<k,shift size>
     public static Map<Integer,Integer> getGoodSuffixTable(String pattern){
 

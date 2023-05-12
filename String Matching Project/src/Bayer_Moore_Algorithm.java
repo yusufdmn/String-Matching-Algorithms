@@ -4,15 +4,22 @@ import java.util.Map;
 
 public class Bayer_Moore_Algorithm extends Algorithm{
 
+        private String text;
+        private String pattern;
 
-    public static void main(String[] args) {
+        private Map<Integer,Integer> goodSuffixTable ;
+        private Map<Character,Integer> badSymbolTable ;
 
-        ArrayList<Integer> list ;
-        list = new Bayer_Moore_Algorithm().applyBoyerMoore("amama","ama");
-        System.out.println(list);
+
+    public Bayer_Moore_Algorithm(String text,String pattern){
+        this.pattern=pattern;
+        this.text = text;
+        goodSuffixTable=Helper.getGoodSuffixTable(pattern);
+        badSymbolTable =Helper.getBadSymbolTable(pattern);
+
     }
-
-    public ArrayList<Integer> applyBoyerMoore(String text,String pattern){
+    
+    public ArrayList<Integer> applyBoyerMoore(){
 
         comparison =0;
 
@@ -42,10 +49,9 @@ public class Bayer_Moore_Algorithm extends Algorithm{
             if(numOfMatches==pattern.length()){
                 list.add(i);
                 //şurayı son olay için değiştiricem
-                shift = getShiftSize(pattern,'æ',numOfMatches);
+                shift = getShiftSize('æ',numOfMatches);
             }else{
-                shift = getShiftSize(pattern,text.charAt(endIndexOfPatternAtText-numOfMatches),numOfMatches);
-
+                shift = getShiftSize(text.charAt(endIndexOfPatternAtText-numOfMatches),numOfMatches);
             }
 
             //-1 i zaten bura bitince arttıracak nötrlesin diye koydum
@@ -58,11 +64,7 @@ public class Bayer_Moore_Algorithm extends Algorithm{
 
 
     //k represents # of succesfull character match
-    private static int getShiftSize(String pattern,char firstMismatch,int k){
-
-        Map<Integer,Integer> goodSuffixTable = Helper.getGoodSuffixTable(pattern);
-        Map<Character,Integer> badSymbolTable = Helper.getBadSymbolTable(pattern);
-
+    private int getShiftSize(char firstMismatch, int k){
 
         int shiftSize = 0;
 
@@ -83,7 +85,6 @@ public class Bayer_Moore_Algorithm extends Algorithm{
 
         if(k==pattern.length())
             return d2;
-
 
 
         shiftSize = Math.max(d1,d2);
