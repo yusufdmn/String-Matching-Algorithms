@@ -24,19 +24,16 @@ public class Horspool extends Algorithm{
                 comparison++;
                 j--;
             }
-            i += getShiftSize(text, pattern, i, badSymbolTable);
+            i += getShiftSize(text, pattern, i, badSymbolTable, lengthOfPattern);
         }
 
         return matchIndexes;
     }
 
-    int getShiftSize(String text, String pattern, int i, Map<Character, Integer> badSymbolTable){
-        int shiftSize = 0;
+    int getShiftSize(String text, String pattern, int i, Map<Character, Integer> badSymbolTable, int lengthOfPattern){
 
-        int lengthOfPattern = pattern.length();
-
-        char lastCharOfPattern = text.charAt(i + lengthOfPattern - 1);
-        shiftSize = badSymbolTable.getOrDefault(lastCharOfPattern, lengthOfPattern); // if key doesn't exist in map, get lengthOfPattern
+        char lastChar = text.charAt(i + lengthOfPattern - 1);
+        int shiftSize = badSymbolTable.getOrDefault(lastChar, lengthOfPattern); // if key doesn't exist in map, get lengthOfPattern
 
         return shiftSize;
     }

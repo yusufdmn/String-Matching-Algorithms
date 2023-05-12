@@ -2,14 +2,15 @@ import java.io.*;
 
 public class InputData {
 
-    public static String[] fileNames = {"String Matching Project/bit1.html",
-            "String Matching Project/bit2.html",
-            "String Matching Project/bit3.html",
-            "String Matching Project/text1.html",
-            "String Matching Project/deneme.txt"
+        public static String[] fileNames = {"sample.html", "bit1.html",
+            "bit2.html",
+            "bit3.html",
+            "text1.html",
+            "text2.html",
+            "text3.html"
     };
+    public static String[] patterns = {"AT_THAT", "0111010", "11001", "001100", "text", "Osmanlı", "content"};
 
-    public static String[] patterns = {"00101010", "010101", "0000", "class","Overview"};
     public static String text = "";
 
     public static String readTheText(String fileName){

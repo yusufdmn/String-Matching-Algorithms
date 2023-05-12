@@ -1,7 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class Helper {
 
     public static Map<Integer,Integer> goodSuffixTable ;
@@ -98,7 +97,6 @@ public class Helper {
 
         return map;
     }
-
 
 
 

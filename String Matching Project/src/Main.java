@@ -5,7 +5,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-
         for (int i = 0; i < InputData.fileNames.length; i++){
             String text = InputData.readTheText(InputData.fileNames[i]);
             String pattern = InputData.patterns[i];
