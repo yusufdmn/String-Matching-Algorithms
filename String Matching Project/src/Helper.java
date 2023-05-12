@@ -4,8 +4,6 @@ import java.util.Map;
 
 public class Helper {
 
-
-
     public static void printTables(String pattern){
 
         System.out.println("Pattern: " + pattern);
@@ -23,12 +21,9 @@ public class Helper {
 
         Map<Integer,Integer> map = new HashMap<>();
 
-
-
         //iterate # of character match
         outerLoop:
         for(int k=1;k<=pattern.length();k++){
-
 
             int preceedingIndex ;
             char preceeding;
@@ -39,8 +34,6 @@ public class Helper {
                 preceedingIndex=pattern.length()-k-1;
                 preceeding = pattern.charAt(preceedingIndex);
             }
-
-
 
             String match = pattern.substring(preceedingIndex+1);
 
@@ -69,10 +62,7 @@ public class Helper {
             }
             //else
             map.put(k,pattern.length());
-
         }
-
-
 
         return map;
 

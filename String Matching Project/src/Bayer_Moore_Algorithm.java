@@ -53,7 +53,6 @@ public class Bayer_Moore_Algorithm extends Algorithm{
 
         }
 
-
         return list;
     }
 
@@ -69,8 +68,6 @@ public class Bayer_Moore_Algorithm extends Algorithm{
         if(k==pattern.length())
             return d2;
 
-
-
         int shiftSize = 0;
 
         int t_1 = 0;
@@ -82,8 +79,6 @@ public class Bayer_Moore_Algorithm extends Algorithm{
         }
 
         int d1 = Math.max(t_1-k,1);
-
-
 
         if(k==0){
             return d1;
