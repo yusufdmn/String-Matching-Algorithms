@@ -5,6 +5,13 @@ import java.util.Map;
 public class Bayer_Moore_Algorithm extends Algorithm{
 
 
+    public static void main(String[] args) {
+
+        ArrayList<Integer> list ;
+        list = new Bayer_Moore_Algorithm().applyBoyerMoore("amama","ama");
+        System.out.println(list);
+    }
+
     public ArrayList<Integer> applyBoyerMoore(String text,String pattern){
 
         comparison =0;
@@ -31,9 +38,11 @@ public class Bayer_Moore_Algorithm extends Algorithm{
             }
 
             int shift =0;
+
             if(numOfMatches==pattern.length()){
                 list.add(i);
-                shift = pattern.length();
+                //şurayı son olay için değiştiricem
+                shift = getShiftSize(pattern,'æ',numOfMatches);
             }else{
                 shift = getShiftSize(pattern,text.charAt(endIndexOfPatternAtText-numOfMatches),numOfMatches);
 
@@ -51,10 +60,18 @@ public class Bayer_Moore_Algorithm extends Algorithm{
 
     //k represents # of succesfull character match
     private static int getShiftSize(String pattern,char firstMismatch,int k){
-        int shiftSize = 0;
 
         Map<Integer,Integer> goodSuffixTable = Helper.getGoodSuffixTable(pattern);
         Map<Character,Integer> badSymbolTable = Helper.getBadSymbolTable(pattern);
+
+        int d2 = goodSuffixTable.get(k);
+
+        if(k==pattern.length())
+            return d2;
+
+
+
+        int shiftSize = 0;
 
         int t_1 = 0;
 
@@ -66,11 +83,9 @@ public class Bayer_Moore_Algorithm extends Algorithm{
 
         int d1 = Math.max(t_1-k,1);
 
-        int d2 =0;
 
-        if(k>=1&&k<=pattern.length()-1){
-            d2 = goodSuffixTable.get(k);
-        }else{
+
+        if(k==0){
             return d1;
         }
 

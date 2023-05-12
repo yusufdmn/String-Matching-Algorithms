@@ -11,7 +11,6 @@ public class Main {
         testHorspool(matchIndexes, pattern);
         testBoyerMoore(matchIndexes,pattern);
 
-
     }
 
     static void testBruteForce(ArrayList<Integer> matchIndexes, String pattern){

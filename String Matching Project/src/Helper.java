@@ -1,15 +1,21 @@
 import java.util.HashMap;
 import java.util.Map;
 
-//selam aleyküm
+
 public class Helper {
 
 
 
     public static void printTables(String pattern){
+
         System.out.println("Pattern: " + pattern);
         System.out.println("Bad Symbol Table: " + Helper.getBadSymbolTable(pattern));
         System.out.println("Good Suffix: " + Helper.getGoodSuffixTable(pattern) + "\n");
+
+    }
+
+    public static void main(String[] args) {
+        System.out.println("GS : "+ getGoodSuffixTable("amama"));
     }
 
     //Good Suffix Table returns Map<k,shift size>
@@ -21,9 +27,21 @@ public class Helper {
 
         //iterate # of character match
         outerLoop:
-        for(int k=1;k<=pattern.length()-1;k++){
-            int preceedingIndex = pattern.length()-k-1;
-            char preceeding = pattern.charAt(preceedingIndex);
+        for(int k=1;k<=pattern.length();k++){
+
+
+            int preceedingIndex ;
+            char preceeding;
+            if(k==pattern.length()){
+                preceedingIndex = -1;
+                preceeding = 9999;
+            }else{
+                preceedingIndex=pattern.length()-k-1;
+                preceeding = pattern.charAt(preceedingIndex);
+            }
+
+
+
             String match = pattern.substring(preceedingIndex+1);
 
             //iterate preceeding part of the pattern
@@ -40,6 +58,7 @@ public class Helper {
                 }
 
             }
+
             //partial match control
             for(int j = preceedingIndex+2;j<=pattern.length()-1;j++){
                 String partialCheckStr = pattern.substring(j);
