@@ -2,14 +2,14 @@ import java.io.*;
 
 public class InputData {
 
-    public static File fileB = new File("textB.html");
-    public static File fileH = new File("textH.html");
-    public static File fileM = new File("textM.html");
-    public static String pattern = "class";
+    public static String[] fileNames = {"bit1.html", "bit2.html", "bit3.html"};
+
+    public static String[] patterns = {"00101010", "010101", "0000"};
     public static String text = "";
 
-    public static String readTheText(File file){
+    public static String readTheText(String fileName){
 
+        File file = new File(fileName);
         try {
             // Read the contents of the file into a string
             BufferedReader reader = new BufferedReader(new FileReader(file));

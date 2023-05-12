@@ -1,3 +1,4 @@
+import javax.imageio.metadata.IIOMetadataNode;
 import java.util.ArrayList;
 
 public class Main {
@@ -5,16 +6,25 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList<Integer> matchIndexes = new ArrayList<>();
-        String pattern = InputData.pattern;
 
-        testBruteForce(matchIndexes, pattern);
-        testHorspool(matchIndexes, pattern);
-        testBoyerMoore(matchIndexes,pattern);
+
+        for (int i = 0; i < 3; i++){
+            String text = InputData.readTheText(InputData.fileNames[i]);
+            String pattern = InputData.patterns[i];
+
+            Helper.printTables(pattern);
+
+            testBruteForce(matchIndexes, pattern, text);
+            testHorspool(matchIndexes, pattern, text);
+            testBoyerMoore(matchIndexes,pattern, text);
+            System.out.println();
+        }
+
 
 
     }
 
-    static void testBruteForce(ArrayList<Integer> matchIndexes, String pattern){
+    static void testBruteForce(ArrayList<Integer> matchIndexes, String pattern, String text){
 
         System.out.println("BRUTE FORCE");
 
@@ -23,7 +33,6 @@ public class Main {
 
         int lengthOfPattern = pattern.length();
 
-        String text = InputData.readTheText(InputData.fileB);
         matchIndexes = bruteForce.applyBruteForce(text, pattern);
         String textHighlighted = bruteForce.highligthText(text, matchIndexes, lengthOfPattern);
         //InputData.writeInFile(InputData.fileB, textHighlighted);
@@ -33,7 +42,7 @@ public class Main {
         bruteForce.stopTiming();
     }
 
-    static void testHorspool(ArrayList<Integer> matchIndexes, String pattern){
+    static void testHorspool(ArrayList<Integer> matchIndexes, String pattern, String text){
 
         System.out.println("\nHORSPOOL ");
 
@@ -42,7 +51,6 @@ public class Main {
 
         int lengthOfPattern = pattern.length();
 
-        String text = InputData.readTheText(InputData.fileH);
         matchIndexes = horspool.applyHorspool(text, pattern);
         String textHighlighted = horspool.highligthText(text, matchIndexes, lengthOfPattern);
         //InputData.writeInFile(InputData.fileH, textHighlighted);
@@ -52,7 +60,7 @@ public class Main {
         horspool.stopTiming();
     }
 
-    static void testBoyerMoore(ArrayList<Integer> matchIndexes, String pattern){
+    static void testBoyerMoore(ArrayList<Integer> matchIndexes, String pattern, String text){
 
         System.out.println("\nBOYER MOORE");
 
@@ -61,7 +69,6 @@ public class Main {
 
         int lengthOfPattern = pattern.length();
 
-        String text = InputData.readTheText(InputData.fileM);
         matchIndexes = bayerMooreAlgorithm.applyBoyerMoore(text, pattern);
         String textHighlighted = bayerMooreAlgorithm.highligthText(text, matchIndexes, lengthOfPattern);
         //InputData.writeInFile(InputData.fileM, textHighlighted);
