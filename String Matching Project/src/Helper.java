@@ -4,11 +4,16 @@ import java.util.Map;
 
 public class Helper {
 
+    public static Map<Integer,Integer> goodSuffixTable ;
+    public static Map<Character,Integer> badSymbolTable ;
+
     public static void printTables(String pattern){
+        badSymbolTable = Helper.getBadSymbolTable(pattern);
+        goodSuffixTable = Helper.getGoodSuffixTable(pattern);
 
         System.out.println("Pattern: " + pattern);
-        System.out.println("Bad Symbol Table: " + Helper.getBadSymbolTable(pattern));
-        System.out.println("Good Suffix: " + Helper.getGoodSuffixTable(pattern) + "\n");
+        System.out.println("Bad Symbol Table: " + badSymbolTable);
+        System.out.println("Good Suffix: " + goodSuffixTable + "\n");
 
     }
 

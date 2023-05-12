@@ -14,9 +14,8 @@ public class Bayer_Moore_Algorithm extends Algorithm{
     public Bayer_Moore_Algorithm(String text,String pattern){
         this.pattern=pattern;
         this.text = text;
-        goodSuffixTable=Helper.getGoodSuffixTable(pattern);
-        badSymbolTable =Helper.getBadSymbolTable(pattern);
-
+        goodSuffixTable=Helper.goodSuffixTable;
+        badSymbolTable =Helper.badSymbolTable;
     }
     
     public ArrayList<Integer> applyBoyerMoore(){

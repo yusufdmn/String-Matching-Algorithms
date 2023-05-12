@@ -10,7 +10,7 @@ public class Horspool extends Algorithm{
         int lengthOfPattern = pattern.length();
         ArrayList<Integer> matchIndexes = new ArrayList<>();
 
-        Map<Character, Integer> badSymbolTable =  Helper.getBadSymbolTable(pattern);
+        Map<Character, Integer> badSymbolTable =  Helper.badSymbolTable;
 
         int i = 0;
         while (i <= lengthOfText - lengthOfPattern){
@@ -39,7 +39,7 @@ public class Horspool extends Algorithm{
 
         char lastCharOfPattern = text.charAt(i + lengthOfPattern - 1);
         shiftSize = badSymbolTable.getOrDefault(lastCharOfPattern, lengthOfPattern); // if key doesn't exist in map, get lengthOfPattern
-        
+
         return shiftSize;
     }
 
