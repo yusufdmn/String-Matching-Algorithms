@@ -10,6 +10,8 @@ public class Horspool extends Algorithm{
         int lengthOfPattern = pattern.length();
         ArrayList<Integer> matchIndexes = new ArrayList<>();
 
+        Map<Character, Integer> badSymbolTable =  Helper.getBadSymbolTable(pattern);
+
         int i = 0;
         while (i <= lengthOfText - lengthOfPattern){
             int j = lengthOfPattern - 1;
@@ -24,28 +26,20 @@ public class Horspool extends Algorithm{
                 comparison++;
                 j--;
             }
-            i += getShiftSize(isFullMatch, text, pattern, i);
+            i += getShiftSize(isFullMatch, text, pattern, i, badSymbolTable);
         }
 
         return matchIndexes;
     }
 
-    int getShiftSize(boolean isFullMatch, String text, String pattern, int i){
+    int getShiftSize(boolean isFullMatch, String text, String pattern, int i, Map<Character, Integer> badSymbolTable){
         int shiftSize = 0;
-        Map<Character, Integer> badSymbolTable =  Helper.getBadSymbolTable(pattern);
 
         int lengthOfPattern = pattern.length();
 
         char lastCharOfPattern = text.charAt(i + lengthOfPattern - 1);
         shiftSize = badSymbolTable.getOrDefault(lastCharOfPattern, lengthOfPattern); // if key doesn't exist in map, get lengthOfPattern
-
-        /*if (isFullMatch){
-            shiftSize = lengthOfPattern;
-        }
-        else{
-            char lastCharOfPattern = text.charAt(i + lengthOfPattern - 1);
-            shiftSize = badSymbolTable.getOrDefault(lastCharOfPattern, lengthOfPattern); // if key doesn't exist in map, get lengthOfPattern
-        }*/
+        
         return shiftSize;
     }
 
