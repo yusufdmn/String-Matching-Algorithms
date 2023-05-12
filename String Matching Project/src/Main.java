@@ -1,10 +1,9 @@
+import java.io.File;
 import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
-
-        ArrayList<Integer> matchIndexes = new ArrayList<>();
 
 
         for (int i = 0; i < InputData.fileNames.length; i++){
@@ -13,16 +12,16 @@ public class Main {
 
             Helper.printTables(pattern);
 
-            testBruteForce(matchIndexes, pattern, text);
-            testHorspool(matchIndexes, pattern, text);
-            testBoyerMoore(matchIndexes,pattern, text);
+            testBruteForce(pattern, text, InputData.fileNames[i]);
+            testHorspool(pattern, text, InputData.fileNames[i]);
+            testBoyerMoore(pattern, text, InputData.fileNames[i]);
             System.out.println();
         }
 
 
     }
 
-    static void testBruteForce(ArrayList<Integer> matchIndexes, String pattern, String text){
+    static void testBruteForce(String pattern, String text, String fileName){
 
         System.out.println("BRUTE FORCE");
 
@@ -31,16 +30,16 @@ public class Main {
 
         int lengthOfPattern = pattern.length();
 
-        matchIndexes = bruteForce.applyBruteForce(text, pattern);
+        ArrayList<Integer> matchIndexes = bruteForce.applyBruteForce(text, pattern);
         String textHighlighted = bruteForce.highligthText(text, matchIndexes, lengthOfPattern);
-        //InputData.writeInFile(InputData.fileB, textHighlighted);
+        InputData.writeInFile(new File("Brute_output_" + fileName), textHighlighted);
         System.out.println("Comparison: " + bruteForce.comparison);
         System.out.println("Matched words: " + matchIndexes.size());
 
         bruteForce.stopTiming();
     }
 
-    static void testHorspool(ArrayList<Integer> matchIndexes, String pattern, String text){
+    static void testHorspool(String pattern, String text, String fileName){
 
         System.out.println("\nHORSPOOL ");
 
@@ -49,16 +48,16 @@ public class Main {
 
         int lengthOfPattern = pattern.length();
 
-        matchIndexes = horspool.applyHorspool(text, pattern);
+        ArrayList<Integer> matchIndexes = horspool.applyHorspool(text, pattern);
         String textHighlighted = horspool.highligthText(text, matchIndexes, lengthOfPattern);
-        //InputData.writeInFile(InputData.fileH, textHighlighted);
+        InputData.writeInFile(new File("Horspool_output_" + fileName), textHighlighted);
         System.out.println("Comparison: " + horspool.comparison);
         System.out.println("Matched words: " + matchIndexes.size());
 
         horspool.stopTiming();
     }
 
-    static void testBoyerMoore(ArrayList<Integer> matchIndexes, String pattern, String text){
+    static void testBoyerMoore(String pattern, String text, String fileName){
 
         System.out.println("\nBOYER MOORE");
 
@@ -67,9 +66,9 @@ public class Main {
 
         int lengthOfPattern = pattern.length();
 
-        matchIndexes = bayerMooreAlgorithm.applyBoyerMoore();
+        ArrayList<Integer> matchIndexes = bayerMooreAlgorithm.applyBoyerMoore();
         String textHighlighted = bayerMooreAlgorithm.highligthText(text, matchIndexes, lengthOfPattern);
-        //InputData.writeInFile(InputData.fileM, textHighlighted);
+        InputData.writeInFile(new File("Boyer_output_" + fileName), textHighlighted);
         System.out.println("Comparison: " + bayerMooreAlgorithm.comparison);
         System.out.println("Matched words: " + matchIndexes.size());
 

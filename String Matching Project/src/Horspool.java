@@ -15,24 +15,22 @@ public class Horspool extends Algorithm{
         int i = 0;
         while (i <= lengthOfText - lengthOfPattern){
             int j = lengthOfPattern - 1;
-            boolean isFullMatch = false;
             comparison++;
 
             while(j >= 0 && text.charAt(i + j) == pattern.charAt(j)){
                 if (j <= 0){
                     matchIndexes.add(i);
-                    isFullMatch = true;
                 }
                 comparison++;
                 j--;
             }
-            i += getShiftSize(isFullMatch, text, pattern, i, badSymbolTable);
+            i += getShiftSize(text, pattern, i, badSymbolTable);
         }
 
         return matchIndexes;
     }
 
-    int getShiftSize(boolean isFullMatch, String text, String pattern, int i, Map<Character, Integer> badSymbolTable){
+    int getShiftSize(String text, String pattern, int i, Map<Character, Integer> badSymbolTable){
         int shiftSize = 0;
 
         int lengthOfPattern = pattern.length();
