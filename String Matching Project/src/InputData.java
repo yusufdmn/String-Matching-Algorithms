@@ -3,20 +3,21 @@ import java.io.*;
 public class InputData {
 
         public static String[] fileNames = {"sample.html", "bit1.html",
-            "bit2.html",
-            "bit3.html",
-            "text1.html",
-            "text2.html",
-            "text3.html"
+                "bit2.html",
+                "bit3.html",
+                "text1.html",
+                "text2.html",
+                "text3.html"
     };
     public static String[] patterns = {"AT_THAT", "0111010", "11001", "001100", "text", "Osmanlı", "content"};
 
     public static String text = "";
 
     public static String readTheText(String fileName){
-
-        File file = new File(fileName);
         try {
+            String path = System.getProperty("user.dir") + "/";
+            File file = new File(path + fileName);
+
             // Read the contents of the file into a string
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String line = "";
@@ -32,8 +33,11 @@ public class InputData {
         return null;
     }
 
-    public  static void writeInFile(File file, String output){
+    public  static void writeInFile(String fileName, String output){
         try {
+            String path = System.getProperty("user.dir") + "/";
+            File file = new File(path + fileName);
+
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             writer.write(output);
             writer.close();
