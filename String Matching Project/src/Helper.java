@@ -14,6 +14,7 @@ public class Helper {
         System.out.println("Bad Symbol Table: " + badSymbolTable);
         System.out.println("Good Suffix: " + goodSuffixTable + "\n");
 
+
     }
 
     //Good Suffix Table returns Map<k,shift size>

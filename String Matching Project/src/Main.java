@@ -1,4 +1,3 @@
-import java.io.File;
 import java.util.ArrayList;
 
 public class Main {
@@ -11,6 +10,7 @@ public class Main {
 
             Helper.printTables(pattern);
 
+            System.out.println();
             testBruteForce(pattern, text, InputData.fileNames[i]);
             testHorspool(pattern, text, InputData.fileNames[i]);
             testBoyerMoore(pattern, text, InputData.fileNames[i]);
@@ -31,7 +31,7 @@ public class Main {
 
         ArrayList<Integer> matchIndexes = bruteForce.applyBruteForce(text, pattern);
         String textHighlighted = bruteForce.highligthText(text, matchIndexes, lengthOfPattern);
-        InputData.writeInFile("Brute_output_" + fileName, textHighlighted);
+        InputData.writeInFile(fileName + "Brute_output.html", textHighlighted);
         System.out.println("Comparison: " + bruteForce.comparison);
         System.out.println("Matched words: " + matchIndexes.size());
 
@@ -49,7 +49,7 @@ public class Main {
 
         ArrayList<Integer> matchIndexes = horspool.applyHorspool(text, pattern);
         String textHighlighted = horspool.highligthText(text, matchIndexes, lengthOfPattern);
-        InputData.writeInFile("Horspool_output_" + fileName, textHighlighted);
+        InputData.writeInFile(fileName +"Horspool_output.html", textHighlighted);
         System.out.println("Comparison: " + horspool.comparison);
         System.out.println("Matched words: " + matchIndexes.size());
 
@@ -67,7 +67,7 @@ public class Main {
 
         ArrayList<Integer> matchIndexes = bayerMooreAlgorithm.applyBoyerMoore();
         String textHighlighted = bayerMooreAlgorithm.highligthText(text, matchIndexes, lengthOfPattern);
-        InputData.writeInFile("Boyer_output_" + fileName, textHighlighted);
+        InputData.writeInFile(fileName +"Boyer_output.html", textHighlighted);
         System.out.println("Comparison: " + bayerMooreAlgorithm.comparison);
         System.out.println("Matched words: " + matchIndexes.size());
 

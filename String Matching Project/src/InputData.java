@@ -2,14 +2,17 @@ import java.io.*;
 
 public class InputData {
 
-        public static String[] fileNames = {"sample.html", "bit1.html",
-                "bit2.html",
-                "bit3.html",
-                "text1.html",
-                "text2.html",
-                "text3.html"
+    public static String[] fileNames = {
+            "sample.html",
+            "bit1.html",
+            "bit2.html",
+            "bit3.html",
+            "text1.html",
+            "text2.html",
+            "text3.html"
     };
-    public static String[] patterns = {"AT_THAT", "0111010", "11001", "001100", "text", "Osmanlı", "content"};
+    public static String[] patterns = {"AT_THAT", "0111010", "01111111111111100000000000000000000000000000111111111"
+            , "01000", "text", "Ottoman Empire", "content"};
 
     public static String text = "";
 

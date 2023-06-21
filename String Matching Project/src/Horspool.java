@@ -15,15 +15,20 @@ public class Horspool extends Algorithm{
         int i = 0;
         while (i <= lengthOfText - lengthOfPattern){
             int j = lengthOfPattern - 1;
-            comparison++;
 
-            while(j >= 0 && text.charAt(i + j) == pattern.charAt(j)){
-                if (j <= 0){
-                    matchIndexes.add(i);
+            while(j >= 0){
+                if(text.charAt(i + j) == pattern.charAt(j)){
+                    if (j == 0){
+                        matchIndexes.add(i);
+                    }
+                    comparison++;
+                }else{
+                    comparison++;
+                    break;
                 }
-                comparison++;
                 j--;
             }
+
             i += getShiftSize(text, pattern, i, badSymbolTable, lengthOfPattern);
         }
 

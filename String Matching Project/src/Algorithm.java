@@ -8,12 +8,11 @@ abstract class Algorithm {
 
     public void startTiming(){
         timeOfStart = System.currentTimeMillis();
-        //System.out.println("Time Of Start: " + timeOfStart + "");
     }
     public void stopTiming(){
         timeOfEnd = System.currentTimeMillis();
         timeOfExecution = timeOfEnd - timeOfStart;
-        //System.out.println("Time Of End: " + timeOfEnd);
+
         System.out.println("Execution Time: " + timeOfExecution);
     }
 
@@ -27,7 +26,6 @@ abstract class Algorithm {
             while(index > 0 && matchIndexes.get(index) - matchIndexes.get(index - 1) < lengthOfPattern){
                 overlapCount++;
                 index--;
-                //if (index == -1) index++;
             }
 
             textHighlighted.insert(matchIndexes.get(index + overlapCount) + lengthOfPattern, "</mark>");

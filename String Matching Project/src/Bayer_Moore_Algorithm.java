@@ -11,7 +11,7 @@ public class Bayer_Moore_Algorithm extends Algorithm{
         private Map<Character,Integer> badSymbolTable ;
 
 
-    public Bayer_Moore_Algorithm(String text,String pattern){
+    public Bayer_Moore_Algorithm(String text, String pattern){
         this.pattern=pattern;
         this.text = text;
         goodSuffixTable=Helper.goodSuffixTable;
